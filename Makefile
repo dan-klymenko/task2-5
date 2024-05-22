@@ -9,3 +9,7 @@ linux: get
 	CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -v -o task2-5 -ldflags "-X="github.com/dan-klymenko/task2-5/cmd.appVersion=${VERSION}
 macos: get
 	CGO_ENABLED=0 GOOS=macos GOARCH=arm64 go build -v -o task2-5 -ldflags "-X="github.com/dan-klymenko/task2-5/cmd.appVersion=${VERSION}
+image:
+	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+clean:
+	docker rmi task2-5
