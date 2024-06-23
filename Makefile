@@ -13,7 +13,7 @@ image:
 	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
 clean:
-	docker rmi 
+	docker rmi <IMAGE_TAG>
 
 
 
